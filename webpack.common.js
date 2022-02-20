@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: "Depth First search",
       template: "./src/assets/template.html",
       favicon: "./src/assets/favicon.ico",
     }),

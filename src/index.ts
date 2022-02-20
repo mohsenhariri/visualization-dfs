@@ -4,7 +4,7 @@ const canvasContainer = document.createElement("div") as HTMLDivElement;
 canvasContainer.setAttribute("id", "container");
 document.body.appendChild(canvasContainer);
 const canvas = document.createElement("canvas") as HTMLCanvasElement;
-canvas.innerHTML = "Your browser does not seem to support HTML5 canvas.";
+canvas.innerText = "Your browser does not seem to support HTML5 canvas.";
 canvasContainer.appendChild(canvas);
 canvas.setAttribute("id", "board");
 
@@ -26,8 +26,8 @@ document.body.appendChild(formContainer);
 const startBtn = document.createElement("button") as HTMLButtonElement;
 const resetBtn = document.createElement("button") as HTMLButtonElement;
 
-startBtn.innerHTML = "start";
-resetBtn.innerHTML = "reset";
+startBtn.innerText = "start";
+resetBtn.innerText = "reset";
 
 formContainer.appendChild(startBtn);
 formContainer.appendChild(resetBtn);
@@ -158,9 +158,7 @@ const nodeToXY = (node: string) => {
 };
 
 const neighbors = (node: string): Set<string> => {
-  const coordinate = nodeToXY(node);
-  const x = coordinate[0];
-  const y = coordinate[1];
+  const [x,y] = nodeToXY(node);
   const neighborNode: Set<string> = new Set();
   if (x - 1 >= 0) {
     neighborNode.add(`${x - 1},${y}`);
@@ -207,6 +205,9 @@ const start = (): void => {
   })();
 };
 
+
+// End of GRAPH
+
 startBtn.onclick = () => {
   start();
 };
@@ -217,4 +218,3 @@ resetBtn.onclick = () => {
   eventCounter = 0;
   canvas.addEventListener("click", handleClick);
 };
-// End of GRAPH
